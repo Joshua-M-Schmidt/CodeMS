@@ -1,0 +1,400 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Start | Schmidtschulungen</title>{% endblock %}
+{% block navigation %}
+<ul class="right hide-on-med-and-down">
+  <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+  <li><a href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+<ul id="nav-mobile" class="sidenav">
+  <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+  <li><a href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+
+<nav class="nav-extended amber darken-3">
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo left ">
+      <img src="https://cdn.unterweisung-on-demand.de/KMS_Logos.svg" /></br>
+    </a>
+  </div>
+</nav>
+
+<style>
+  .nav-extended .nav-wrapper .brand-logo img {
+  height: 64px;
+  padding: 7px;
+}
+
+@media screen and (max-width: 600px)  {
+  .nav-extended .nav-wrapper .brand-logo img {
+    height: 56px;
+    padding: 7px;
+  }
+}
+</style>
+
+<!-- Event snippet for Privat conversion page -->
+<script>
+  gtag('event', 'conversion', { 'send_to': 'AW-946984920/h767CJm2xZoBENivx8MD' });
+</script>
+
+<div class="slider" id="slider1">
+  <ul class="slides">
+    <li>
+      <img src="{% static 'img/bild-min.jpg' %}">
+      <div class="caption left-align">
+        <h5 class="title"><strong>Jeder Teilnehmer bekommt eine anschauliche <br>Zusammenfassung der
+            Präsentation</strong></h5>
+      </div>
+    </li>
+    <li>
+      <img src="{% static 'img/untitled-min.jpg' %}">
+      <div class="caption left-align">
+        <h5 class="title"><strong>Kranscheine<br>stellen wir im CE-Karten <br> und Din A4 Format aus</strong></h5>
+      </div>
+    </li>
+    <li>
+      <img src="{% static 'img/bildssöa-min.jpg' %}">
+      <div class="caption left-align">
+        <h5 class="title"><strong>Wir legen besonders viel Wert auf eine aktuelle, <br> anschauliche und moderne
+            Präsentation</strong></h5>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="section no-pad-bot " id="index-banner">
+  <div class="container">
+    <div class="row hide">
+      <a href="{% url 'exams' %}">
+        <div class="col s12 hoverable card grey lighten-3 ">
+          <div class="card-content grey-text text-darken-3 valign-wrapper">
+            <i class="medium material-icons " style="margin-right: 2rem;">school</i>
+            <div>
+              <h5 style="margin-top: 0rem;">Testen Sie sich Online</h5>
+              <p>legen Sie eine theoretische Beispiel Prüfung ab</p>
+            </div>
+            <i class="medium material-icons hide-on-small-only"
+              style="float:right;position: absolute; right: 2rem;">arrow_forward</i>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <h4>nächste Kranschulungen</h4>
+        <div class="divider"></div>
+        <br>
+
+        <table class="highlight responsive-table">
+          <tbody>
+            {% for c in courses %}
+            <tr>
+              <td>{{ c.location }} {{ c.location_post_id }}</td>
+              <td>{{ c.date }} {{ c.time }}</td>
+              {% if c.status == "Keine freie Plätze"%}
+              <td class="red-text">{{ c.status }}</td>
+              {% elif c.status == "Wenige freie Plätze" %}
+              <td class="amber-text text-darken-3">{{ c.status }}</td>
+              {% else %}
+              <td class="green-text">{{ c.status }}</td>
+              {% endif %}
+              <td>{{ c.cost }}€</td>
+              <td><a class="btn amber darken-3 white-text" href="/anmelden/{{c.id}}">Anmelden</a></td>
+            </tr>
+
+            {% endfor %}
+            {% if not courses %}
+              <p>Leider sind zur Zeit keine Schulungen für Privatpersonen geplant.</p>
+            {% endif %}
+          </tbody>
+        </table>
+        <br>
+        <br>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6">
+        <h4>Warum Kranservice Schmidt</h4>
+        <div class="divider"></div>
+        <br>
+        <ul>
+          <li>
+            <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                style="margin: 1em;">check</i>Mit uns haben sie Rechtsicherheit. Unsere Unterweisungen genügen der DGUV
+              Vorschrift 52 und DGUV Grundsatz 309-003</div>
+          </li>
+          <div style="margin-top: 0.5em;"></div>
+          <li>
+            <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                style="margin: 1em;">check</i>Bereits 5500 erfolgreiche Teilnehmer. Mehr als 120 Firmen vertrauen uns
+              bereits ihre Kranschulung an</div>
+          </li>
+          <div style="margin-top: 0.5em;"></div>
+          <li>
+            <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                style="margin: 1em;">check</i>Die Präsentation ist modern und anschaulich. Ihre Inhalte bewährt</div>
+          </li>
+          <div style="margin-top: 0.5em;"></div>
+          <li>
+            <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                style="margin: 1em;">check</i>Als ABUS Service Partner garantieren wir Ihnen höchste Qualität und
+              Kompetenz in Sachen Kran. 23 Jahre Erfahrung sprechen für sich.</div>
+          </li>
+          <div style="margin-top: 0.5em;"></div>
+        </ul>
+        <br>
+        <br>
+      </div>
+
+
+      <div class="col s12 m6">
+        <h4>Häufige Fragen</h4>
+        <div class="divider"></div>
+        <br>
+
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">error</i>Was geschieht nach der Anmeldung?</div>
+            <div class="collapsible-body"><span>Wir senden Ihnen per Mail Anschrift und Tagesplan</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">attach_money</i>Wie viel Kostet die Schulung?
+            </div>
+            <div class="collapsible-body"><span>Die Schulung kostet pro person 178.50€ pro Person</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">place</i>Wo finden die Schulungen statt?</div>
+            <div class="collapsible-body"><span>Die Schulungen finden im gesamten Süddeutschen Raum, in den
+                Räumlichkeiten unserer Firmenkunden statt</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">access_time</i>Wie viel Zeit muss ich einplanen?
+            </div>
+            <div class="collapsible-body"><span>Eine Schulung mit Praktischer und Theoretischer Prüfung dauert von 8 bis
+                15 ca. Uhr</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">info</i>Wann bekomme ich meinen Kranausweis?</div>
+            <div class="collapsible-body"><span>Die Dokumentationspapiere und ihren Kranausweis bekommen Sie binnen 7.
+                Werktage zugeschickt</span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">question_answer</i>Kann ich meine Anmeldung
+              Stornieren?</div>
+            <div class="collapsible-body"><span>Bis zu 7 Tage vor Schulungbeginn könne Sie Ihre Anmeldung kostenfrei
+                stornieren. Schreiben Sie uns einfach eine kurze Mail. Danach wird eine Bearbeitungsgebür von 20€
+                fällig</span></div>
+          </li>
+        </ul>
+
+        <br>
+        <br>
+      </div>
+
+      <div class="col s12">
+
+        <div class="row">
+          <h4>Der Referent</h4>
+          <div class="divider"></div>
+          <br>
+          <div class="col s12 m5 l4">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/zim6UfnE2zU" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <br>
+            <br>
+          </div>
+
+          <div class="col s12 m7 l8" style="font-size: 1.3em;">
+            <div><strong>Michael Schmidt</strong></div>
+            <br>
+            <div>Seit 1996 bin ich als sowohl freiberuflicher Ausbilder für Kran- Staplerführer und Hebebühnenbediener,
+              als auch als Kransachkundiger
+              und Servicepartner der ABUS Kransysteme GmbH im süddeutschen Raum tätig. In dieser Zeit hatte ich über
+              5500 erfolgreiche Schulungsteilnehmer.</div>
+            <br>
+            <a class="btn modal-trigger green" href="#modal1">Qualifikation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <h4>Was sagen unsere Kunden?</h4>
+    </div>
+    <div class="divider"></div>
+    <br>
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block center">
+          <img src="{% static 'img/Fischer-Edelstahlrohre1-min.jpg' %}" alt="" class="center responsive-img">
+          <h5 class="center">Thomas Gaiser <br> <span class="grey-text" style="font-size: 0.5em;">Fischer
+              Edelstahlrohre GmbH</span> </h5>
+          <p class="light">
+            Wir arbeiten seit Jahren mit der Fa. Kranservice Schmidt. Die Schulungen sind
+            effizient, das Sicherheitsbewusstsein unserer Mitarbeiter wird positiv verändert.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block center">
+          <img src="{% static 'img/kunde_muehlb1-min.jpg' %}" alt="" class="center responsive-img"></h2>
+          <h5 class="center">Thomas Mühlbauer <br> <span class="grey-text" style="font-size: 0.5em;">Rampp
+              Maschinenbau GmbH Co. KG</span></h5>
+
+          <p class="light">
+            Über viele Jahre ist die Fa. Kranservice Michael Schmidt ein verlässlicher
+            Partner
+            an unserer Seite. Sie ist unser Ansprechpartner Nr.1 in allen Belangen rund um Service und
+            Schulungen. Der kompetente und unkomplizierte Umgang ist besonders hervorzuheben.</p>
+        </div>
+      </div>
+
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h3>Qualifikationen</h3>
+            </br>
+
+            <div class="collection">
+                <a href="https://cdn.unterweisung-on-demand.de/Meisterbrief_Michael_Schmidt.pdf" target="_blank" class="collection-item">Meisterbrief (PDF)</a>
+                <a href="https://cdn.unterweisung-on-demand.de/Sachverständigenausbildung_Michael_Schmidt.pdf" target="_blank" class="collection-item">Sachverständigenausbildung (PDF)</a>
+                <a href="https://cdn.unterweisung-on-demand.de/Zertifikat_Ausbilder_für_Kranführer.pdf" target="_blank" class="collection-item">Kranführer Ausbilder Zertifikat (PDF)</a>
+              </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">schließen</a>
+        </div>
+    </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h5 class="center"><a
+              href="https://www.google.com/search?source=hp&ei=D7enXLnyH--FmwWMnLHwBQ&q=kranservice+schmidt&btnK=Google-Suche&oq=kranservice+schmidt&gs_l=psy-ab.3..0i22i30l2.1149.3847..3980...0.0..0.101.1373.17j2....2..0....1..gws-wiz.....0..0j0i131j0i10j0i22i10i30.5uRe7kqHO3c#btnK=Google-Suche&lrd=0x479bf9635e34608f:0x74918f5c9d898a86,1,,,">Google
+              Bewertungen</a></h5>
+          <div id="google-reviews"><br>
+            <div class="review-item">
+              <div class="review-meta"><span class="review-author">Ma K.</span><span class="review-sep"></span></div>
+              <div class="review-stars">
+                <ul>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                </ul>
+              </div>
+              <p class="review-text">Guter Kurs - zum weiterempfehlen nur .. sehr informativ reich</p>
+            </div>
+            <div class="review-item">
+              <div class="review-meta"><span class="review-author">Alfred J.</span><span class="review-sep"></span>
+              </div>
+              <div class="review-stars">
+                <ul>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                </ul>
+              </div>
+              <p class="review-text">Die Schulung war sehr interessant und informativ</p>
+            </div>
+            <div class="review-item">
+              <div class="review-meta"><span class="review-author">Reiner H.</span><span class="review-sep"></span>
+              </div>
+              <div class="review-stars">
+                <ul>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                </ul>
+              </div>
+              <p class="review-text">Top Kranschulung viel neues erfahren!</p>
+            </div>
+            <div class="review-item">
+              <div class="review-meta"><span class="review-author">Alexander W.</span><span class="review-sep"></span>
+              </div>
+              <div class="review-stars">
+                <ul>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                  <li><i class="star"></i></li>
+                </ul>
+              </div>
+              <p class="review-text"></p>
+            </div>
+          </div><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  <h4>Wer sind unsere Kunden?</h4>
+  <div class="divider"></div>
+  <br>
+  <div class="row">
+    <img class="col m2 s4 responsive-img" src="{% static 'img/ABUS_Logo-min.jpg' %}"></a>
+    <img class="col m2 s4 responsive-img" src="{% static 'img/AMG_Logo-min.jpg' %}"></a>
+    <img class="col m2 s4 responsive-img" src="{% static 'img/BMW_Logo-min.jpg' %}"></a>
+    <img class="col m2 s4 responsive-img" src="{% static 'img/Porsche_Logo-min.jpg' %}"></a>
+    <img class="col m2 s4 responsive-img" src="{% static 'img/Siemens_Logo-min.jpg' %}"></a>
+    <img class="col m2 s4 responsive-img" src="{% static 'img/wuerth_logo-min.jpg' %}"></a>
+  </div>
+  <a style="font-size: 1.5rem;" href="{% url 'referenzen' %}">Referenzliste</a>
+  <br>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col s12 m5 offset-m1 hide-on-med-and-up">
+      <div id="angebot" name="angebot" class="row card amber darken-3" style="padding-bottom: 1em;">
+        <div class="card-content white-text">
+          <span class="card-title" style="font-size: 2em;">Angebot Anfordern</span>
+          <strong>in 1 Werktag</strong>
+          <br>
+          <br>
+
+          <form class="col s12" action="/" method="post">
+            {% csrf_token %}
+            {{ request_form }}
+            <input type="submit" value="Anfragen">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}

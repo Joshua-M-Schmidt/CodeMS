@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  {% block title %}{% endblock %}
+
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.min.css' %}" type="text/css" rel="stylesheet"  />
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" />
+  <link href="{% static 'css/jquery-google-reviews.css' %}" type="text/css" rel="stylesheet" />
+
+<!-- Global site tag (gtag.js) - Google Ads: 946984920 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-946984920"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-946984920');
+</script>
+
+
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script>
+  window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#283593"
+      },
+      "button": {
+        "background": "#fff",
+        "text": "#283593"
+      }
+    },
+    "theme": "classic",
+    "position": "bottom-left",
+    "content": {
+      "message": "Die Website verwendet Cookies, um Ihnen ein bestmögliches Angebot zu präsentieren. Nähere Informationen  finden Sie",
+      "dismiss": "Fortfahren",
+      "link": "hier.",
+      "href": "/datenschutz"
+    }
+  })});
+  </script>
+
+  <!-- Hotjar Tracking Code for www.schmidtschulungen.de -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:1278695,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+</head>
+
+<body class="indigo darken-3">
+        <div class="container">
+                <div class="row white-text box valign-wrapper hide-on-small-only" style="height: 90vh;">
+                    <div class="col s12 m6 center">
+                            <i class="large material-icons">person</i>
+                        <h2>Angebot für Einzelperson<br></h2>
+                        <a class="waves-effect waves-light btn modal-trigger amber darken-3" href="{% url 'kran_landing_privat' %}">Fortfahren</a>
+                    </div>
+                    <div class="col s12 m6 center" style="border-left: thin solid #eeeeee;">
+                        <i class="large material-icons">group</i>
+                        <h2>Angebot für Gruppen</h2>
+                        <a class="waves-effect waves-light btn modal-trigger amber darken-3" href="{% url 'kran_landing' %}">Fortfahren</a>
+                    </div>
+                </div>
+
+                <div class="white-text hide-on-med-and-up">
+                    <div class="col s12 m6 center" style="margin-top: 5vh;">
+                            <i class="large material-icons">person</i>
+                            <h2>Angebot für Einzelperson<br></h2>
+                        <a class="waves-effect waves-light btn modal-trigger amber darken-3" href="{% url 'kran_landing_privat' %}">Fortfahren</a>
+                    </div>
+                    <div class="divider" style="margin-top: 5vh;"></div>
+                    <div class="col s12 m6 center" style="margin-top: 5vh;">
+                        <i class="large material-icons">group</i>
+                        <h3>Angebot für Gruppen</h3>
+                        <a class="waves-effect waves-light btn modal-trigger amber darken-3" href="{% url 'kran_landing' %}">Fortfahren</a>
+                    </div>
+                </div>
+            </div>
+
+ 
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBD7BLuZLojD2732JM8I7e99Sg8bWL5Mx0"></script>
+  <script src="{% static 'js/materialize.min.js' %}"></script>
+  <script src="{% static 'js/jquery-google-reviews.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+</body>
+</html>

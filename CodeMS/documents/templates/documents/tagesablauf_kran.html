@@ -1,0 +1,91 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Tagesablauf | Schmidtschulungen</title>{% endblock %}
+{% block navigation %}
+<ul class="right hide-on-med-and-down">
+        <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+        <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+        <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+<ul id="nav-mobile" class="sidenav">
+        <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+        <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+        <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+<link href="{% static 'css/print.css' %}" type="text/css" rel="stylesheet" media="print" />
+
+<div class="container">
+        <div class="section">
+
+                <br>
+                <div class="valign-wrapper">
+                        <h3 class="indigo-text text-darken-3 left-align">Tagesablauf Staplerschulung</h3>
+
+                </div>
+
+
+                <br>
+                <br>
+
+                <div class="flow-text">
+
+                        <div class="row">
+                                <div class="col s4 grey-text right-align">08.00 - 08.15 Uhr</div>
+                                <div class="col s8">Begrüßung / Einführung</div>
+                        </div>
+                        <br>
+                        <div class="row">
+                                <div class="col s4 grey-text right-align">08.15 - 09.30 Uhr</div>
+                                <div class="col s8">Rechtliche Grundlagen /
+                                        Auswahl von Fahrzeugführern
+                                        Charakteristik der Flurförderzeuge
+                                </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                                <div class="col s4 grey-text right-align">09.30 – 09.45 Uhr</div>
+                                <div class="col s8">Brotzeit
+                                </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                                <div class="col s4 grey-text right-align">09.45 – 11.00 Uhr</div>
+                                <div class="col s8">Bau, Ausrüstung, Instandhaltung und
+                                        Prüfungen
+                                        Einsatz von Flurförderzeugen
+                                </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                                <div class="col s4 grey-text right-align">11.00 – 11.05 Uhr</div>
+                                <div class="col s8">Kurzpause
+                                </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                                <div class="col s4 grey-text right-align">11.05 – 12.00 Uhr</div>
+                                <div class="col s8">Fahrübungen
+                                        Praktische Prüfung
+                                </div>
+                        </div>
+                        <br>
+                </div>
+
+                <a class="amber darken-2 waves-effect btn" onclick="window.print();return false;"><i
+                                class="material-icons left">local_printshop</i>Drucken</a>
+
+                <br><br>
+        </div>
+</div>
+{% endblock %}
+
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}

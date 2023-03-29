@@ -1,0 +1,202 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Danke | Schmidtschulungen</title>{% endblock %}
+  
+{% block navigation %}
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'kran_landing' %}">Start</a></li>
+                <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+                <li><a href="{% url 'impressum' %}">Impressum</a></li>
+                <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+             </ul>
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="{% url 'kran_landing' %}">Start</a></li>
+                <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+                <li><a href="{% url 'impressum' %}">Impressum</a></li>
+                <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+            </ul>
+        {% endblock %}
+
+{% block content %}
+
+<!-- Event snippet for Kranschulung-Anfrage conversion page -->
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-946984920/IuBPCJzx3pgBENivx8MD'});
+  </script>  
+  
+
+<div class="container">
+    <br>
+    <div class="card amber darken-3">
+            <div class="card-content white-text">
+                    <h3>Vielen Dank für Ihre Anfrage</h3>
+                    <p class="flow-text">Wir senden Ihnen Ihr Angebot binnen 1. Werktag</p>
+                    <br>
+            </div>
+            
+    </div>
+    <br>
+    <h3 class="flow-text">Wusten Sie, das jährliche Wiederholungsunterweisungen Pflicht sind?</h3>
+    <div class="divider"></div>
+    <br>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="icon-block">
+                <h5 class="center">Vorort wdh. Unterweisung</h5>
+                <ul>
+                    <li>
+                      <div class="valign-wrapper light" style="font-size: 1.3em;">
+                        <i class="Small material-icons"style="margin: 1em;">check</i>
+                        Mit unserer jährlichen wdh.-Unterweisung erfüllen Sie ArbSchG §12 Abs. 1 und DGUV V1 §4. 
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                      <div class="valign-wrapper light" style="font-size: 1.3em;"><i class="Small material-icons"
+                          style="margin: 1em;">check</i>Der Zeitaufwand beträgt vor Ort ca. 3,5h.</div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                  </ul>
+                  <div class="center"><a class="center btn amber darken-3" href="{% url 'kontakt' %}">Anfragen</a></div>
+            </div>
+        </div>
+    
+        <div class="col s12 m6">
+            <div class="icon-block">
+                    <div class="video-container">
+                        <iframe width="640" height="360" src="https://www.youtube.com/embed/06CKZ6TT9Kw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                          
+                    <h5 class="center">Online wdh. Unterweisung</h5>
+                    <ul>
+                        <li>
+                          <div class="valign-wrapper light">
+                            <i class="Small material-icons"style="margin: 1em;">check</i>
+                            Mit unserer online wdh.-Unterweisung erfüllen Sie ArbSchG §12 Abs. 1 und DGUV V1 §4. 
+                            </div>
+                        </li>
+                        <div style="margin-top: 0.5em;"></div>
+                        <li>
+                          <div class="valign-wrapper light"><i class="Small material-icons"
+                              style="margin: 1em;">check</i>Der Zeitaufwand beträgt für Sie ca. 126 min</div>
+                        </li>
+                        <div style="margin-top: 0.5em;"></div>
+                      </ul>
+                      <div class="center"><a class="center btn indigo darken-3" href="https://www.unterweisung-on-demand.de/login/">Preise</a></div>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <h3>Weitere Unterweisungen</h3>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="icon-block">
+                    <img class="center responsive-img" src="{% static 'img/hebebühne-min.jpg' %}"></a>
+                    <h5 class="center">Hebebühnen Unterweisung</h5>
+                    <ul>
+                        <li>
+                            <div class="valign-wrapper light" >
+                              <i class="Small material-icons"style="margin: 1em;">check</i>
+                              Mit unserer Hebebühnenunterweisung erfüllen sie ArbSchG §12 Abs 1
+                              </div>
+                          </li>
+                          <div style="margin-top: 0.5em;"></div>
+                          <li>
+                            <div class="valign-wrapper light" ><i class="Small material-icons"
+                                style="margin: 1em;">check</i>
+                                Zudem erfüllen sie DGUV Grundsatz 308-008 
+                              </div>
+                          </li>
+                          <div style="margin-top: 0.5em;"></div>
+                          <li>
+                            <div class="valign-wrapper light" ><i class="Small material-icons"
+                                style="margin: 1em;">check</i>
+                                Der Zeitaufwand für Theorie, Praxis und Prüfungen beträgt 1 Tag
+                              </div>
+                          </li>
+                          <div style="margin-top: 0.5em;"></div>
+                  
+                      </ul>
+                    <div class="center"><a class="center btn amber darken-3" href="{% url 'kontakt' %}">Anfragen</a></div>
+            </div>
+        </div>
+    
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <img class="center responsive-img" src="{% static 'img/stapler-min.jpg' %}"></a>
+                <h5 class="center">Stapler Unterweisung</h5>
+                <ul>
+                    <li>
+                        <div class="valign-wrapper light" >
+                          <i class="Small material-icons"style="margin: 1em;">check</i>
+                          Mit unserer Staplerunterweisung erfüllen sie DGUV Vorschrift 68
+                          </div>
+                      </li>
+                      <div style="margin-top: 0.5em;"></div>
+                      <li>
+                        <div class="valign-wrapper light" ><i class="Small material-icons"
+                            style="margin: 1em;">check</i>
+                            Zudem erfüllen sie DGUV Grundsatz 308-001
+                          </div>
+                      </li>
+                      <div style="margin-top: 0.5em;"></div>
+                      <li>
+                        <div class="valign-wrapper light" ><i class="Small material-icons"
+                            style="margin: 1em;">check</i>
+                            Der Zeitaufwand für Theorie, Praxis und Prüfungen beträgt 1 Tag
+                          </div>
+                      </li>
+                      <div style="margin-top: 0.5em;"></div>
+              
+                  </ul>
+                <div class="center"><a class="center btn amber darken-3" href="{% url 'kontakt' %}">Anfragen</a></div>
+            </div>
+        </div>
+
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <img class="center responsive-img" src="{% static 'img/kran-min.jpg' %}"></a>
+                <h5 class="center">Kran Unterweisung</h5>
+                <ul>
+                    <li>
+                        <div class="valign-wrapper light" >
+                          <i class="Small material-icons"style="margin: 1em;">check</i>
+                          Mit unserer Kranführerunterweisung erfüllen sie DGUV Vorschrift V52 § 29 
+                          </div>
+                      </li>
+                      <div style="margin-top: 0.5em;"></div>
+                      <li>
+                        <div class="valign-wrapper light" ><i class="Small material-icons"
+                            style="margin: 1em;">check</i>
+                            Zudem erfüllen sie DGUV Grundsatz 309-004
+                          </div>
+                      </li>
+                      <div style="margin-top: 0.5em;"></div>
+                      <li>
+                        <div class="valign-wrapper light" ><i class="Small material-icons"
+                            style="margin: 1em;">check</i>
+                            Der Zeitaufwand für Theorie, Praxis und Prüfungen beträgt 1 Tag
+                          </div>
+                      </li>
+                      <div style="margin-top: 0.5em;"></div>
+         
+                  </ul>
+                <div class="center"><a class="center btn amber darken-3" href="{% url 'kontakt' %}">Anfragen</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}
+
+{% block navigation_footer %}
+    <li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+    <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+    <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+    <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Kontakt | Schmidtschulungen</title>{% endblock %}
+{% block navigation %}
+<ul class="right hide-on-med-and-down">
+  <li><a href="{% url 'kran_landing' %}">Start</a></li>
+  <li><a href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+</ul>
+<ul id="nav-mobile" class="sidenav">
+  <li><a href="{% url 'kran_landing' %}">Start</a></li>
+  <li><a href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+</ul>
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<div class="container">
+  <br>
+  <br>
+  <div class="row">
+    <div class="col s12 m5">
+      <span class="card-title" style="font-size: 2em;">Kontakt Informationen</span>
+      <ul>
+        <div style="margin-top: 2rem;"></div>
+        <li>
+          <div class="valign-wrapper" style="font-size: 1.3em;">
+            <i class="small material-icons grey-text" style="margin-right: 1.5rem;">home</i>
+            Kranservice Michael Schmidt<br>
+            Ziegelgrund 25<br>
+            87755 Kirchhaslach<br>
+          </div>
+        </li>
+        <div style="margin-top: 2rem;"></div>
+
+        <li>
+          <div class="valign-wrapper" style="font-size: 1.3em;">
+            <i class="small material-icons grey-text" style="margin-right: 1.5rem;">local_phone</i>
+            08333/95304</div>
+        </li>
+        <div style="margin-top: 2rem;"></div>
+
+        <li>
+          <a href="mailto:info@kranschulungschmidt.de">
+            <div class="valign-wrapper" style="font-size: 1.3em;">
+              <i class="small material-icons grey-text" style="margin-right: 1.5rem;">mail</i>
+              info@kranschulungschmidt.de
+            </div>
+          </a>
+        </li>
+        <div style="margin-top: 2rem;"></div>
+
+        <li>
+          <div class="valign-wrapper" style="font-size: 1.3em;">
+            <i class="small material-icons grey-text"
+              style="margin-right: 1.5rem;">account_balance</i>Umsatzsteuer-ID:<br>
+            138/269/20275</div>
+        </li>
+        <div style="margin-top: 2rem;"></div>
+
+      </ul>
+    </div>
+
+    <div class="col s12 m6 offset-m1">
+      <div class="row card amber darken-3" style="padding-bottom: 1em;">
+        <div class="card-content white-text">
+          <span class="card-title" style="font-size: 2em;">Angebot Anfordern</span>
+          <strong>in 1 Werktag</strong>
+          <br>
+          <br>
+
+          <form class="col s12 course_request" action="/" method="post">
+            {% csrf_token %}
+            {{ request_form.non_field_errors }}
+
+            {% for hidden_field in request_form.hidden_fields %}
+            {{ hidden_field.errors }}
+            {{ hidden_field }}
+            {% endfor %}
+
+            {% for field in request_form.visible_fields %}
+
+
+            {{ field.errors }}
+            <div>
+              {{ field.label_tag }}
+              {{ field }}
+            </div>
+
+            {{ field.help_text }}
+
+            {% endfor %}
+            <input type="submit" value="Anfragen">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+{% endblock %}

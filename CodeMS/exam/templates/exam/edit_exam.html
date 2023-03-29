@@ -1,0 +1,143 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Test | Schmidtschulungen</title>{% endblock %}
+{% block navigation %}
+<ul class="right hide-on-med-and-down">
+  <li><a class="white-text" href="{% url 'kran_landing_privat' %}">Start</a></li>
+  <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+  <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+<ul id="nav-mobile" class="sidenav">
+  <li><a class="white-text" href="{% url 'kran_landing_privat' %}">Start</a></li>
+  <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+  <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col s12 valign-wrapper">
+      <div>
+          <h3 class="grey-text">Prüfung Bearbeiten</h3>
+      </div>
+        
+    </div>
+    
+  </div>
+  <div class="card">
+    <div class="card-content">
+        <p class="title">Prüfungs Info</p>
+      <div class="row" id="question_container">
+            <form class="col s12" action="/exam/{{exam.id}}/edit" method="post">
+                        
+                {% csrf_token %}
+                {{ exam_form.non_field_errors }}
+
+                {% for hidden_field in exam_form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                {% endfor %}
+
+                {% for field in exam_form.visible_fields %}
+                
+                    
+                    {{ field.errors }}
+                    <div class="input-field">
+                            {{ field.label_tag }}
+                            {{ field }}
+                    </div>
+                    
+                    {{ field.help_text }}
+                
+                {% endfor %}
+            
+            
+                
+                <input type="submit" class="btn" value="Speichern">
+            </form>
+            
+      </div>
+      <p class="title">Fragen</p>
+      <div class="row" id="question_container">
+       
+          {% for q in questions %}
+          <div class="col s12 m6" style="height: 12rem;" id="question_{{ forloop.counter }}">
+            <p class="grey-text text-darken-3" style="font-size: 1.1rem;">
+              <strong>{{ forloop.counter }}.{{ q.question_text }}</strong>
+              <a class="red-text align-right" href="{% url 'delete_question' q.id %}"><i class="material-icons">remove_circle</i></a>
+              <a class="grey-text align-right" href="{% url 'edit_question' q.id %}"><i class="material-icons">edit</i></a>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" disabled="disabled" {% if q.correct_answer == 1%} checked="checked" {% endif %} />
+                <span class="black-text">{{ q.answer1 }}</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" disabled="disabled" {% if q.correct_answer == 2%} checked="checked" {% endif %}/>
+                <span class="black-text">{{ q.answer2 }}</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input type="checkbox" disabled="disabled" {% if q.correct_answer == 3%} checked="checked" {% endif %}/>
+                <span class="black-text">{{ q.answer3 }}</span>
+              </label>
+            </p>
+            <br>
+          </div>
+          {% endfor %}
+        </div>
+        <p class="title">Frage Hinzufügen</p>
+        <div class="row" id="question_container">
+            <form class="col s12" action="/exam/{{exam.id}}/add_question" method="post">
+                        
+              {% csrf_token %}
+              {{ add_question_form.non_field_errors }}
+
+              {% for hidden_field in add_question_form.hidden_fields %}
+                  {{ hidden_field.errors }}
+                  {{ hidden_field }}
+              {% endfor %}
+
+              {% for field in add_question_form.visible_fields %}
+              
+                  
+                  {{ field.errors }}
+                  <div class="input-field">
+                          {{ field.label_tag }}
+                          {{ field }}
+                  </div>
+                  
+                  {{ field.help_text }}
+              
+              {% endfor %}
+          
+              <input type="submit" class="btn" value="Hinzufügen">
+          </form>
+          </div>
+    
+    </div>
+    <div class="card-action">
+        <a class="red-text" href="{% url 'delete_exam' exam.id %}">Prüfung Löschen</a>
+        <a class="grey-text" href="{% url 'exam' exam.id %}">Prüfung Anschauen</a>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+</div>
+{% endblock %}
+
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}

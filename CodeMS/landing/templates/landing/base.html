@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  {% block title %}{% endblock %}
+
+  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" />
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.min.css' %}" type="text/css" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" />
+  <link href="{% static 'css/jquery-google-reviews.css' %}" type="text/css" rel="stylesheet" />
+
+  <!-- Global site tag (gtag.js) - Google Ads: 946984920 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-946984920"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-946984920');
+  </script>
+
+  <link rel="stylesheet" type="text/css"
+    href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+    integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+  <script>
+    window.addEventListener("load", function () {
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#283593"
+          },
+          "button": {
+            "background": "#fff",
+            "text": "#283593"
+          }
+        },
+        "theme": "classic",
+        "position": "bottom-left",
+        "content": {
+          "message": "Die Website verwendet Cookies, um Ihnen ein bestmögliches Angebot zu präsentieren. Nähere Informationen  finden Sie",
+          "dismiss": "Fortfahren",
+          "link": "hier.",
+          "href": "/datenschutz"
+        }
+      })
+    });
+  </script>
+</head>
+
+<body>
+  {% if user.is_superuser %}
+    {% include "landingbuilder/admin_nav.html" %}
+  {% endif %}
+  
+  <main>
+  {% block breadcrumb %}{% endblock %}
+  {% block content %}{% endblock %}
+</main>
+
+
+  <!--  Scripts-->
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBD7BLuZLojD2732JM8I7e99Sg8bWL5Mx0"></script>
+  <script src="{% static 'js/materialize.min.js' %}"></script>
+  <script src="{% static 'js/jquery-google-reviews.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+  {% block javascript %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Pages | Schmidtschulungen</title>{% endblock %}
+{% block breadcrumb %}
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+<br>
+<br>
+
+<script>
+    page_id = {{ p.id }};
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" rel="stylesheet">
+<script src="{% static 'landingbuilder/js/stats.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <canvas id="hits" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Versions</h3>
+                    <table>
+                        <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Aufrufe</th>
+                              <th>Anfragen</th>
+                              <th>Rate</th>
+                          </tr>
+                        </thead>
+                
+                        <tbody id="table_body">
+                          
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <canvas id="trend" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+    </style>
+
+   
+</div>
+
+{% endblock %}
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+{% endblock %}

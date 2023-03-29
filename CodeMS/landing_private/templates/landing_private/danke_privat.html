@@ -1,0 +1,104 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Danke | Schmidtschulungen</title>{% endblock %}
+
+{% block navigation %}
+<ul class="right hide-on-med-and-down">
+    <li><a href="{% url 'kran_landing' %}">Start</a></li>
+    <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+    <li><a href="{% url 'impressum' %}">Impressum</a></li>
+    <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+<ul id="nav-mobile" class="sidenav">
+    <li><a href="{% url 'kran_landing' %}">Start</a></li>
+    <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+    <li><a href="{% url 'impressum' %}">Impressum</a></li>
+    <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<!-- Event snippet for Kranschulung Privat Anmeldung conversion page -->
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-946984920/nkn1CIvh3ZkBENivx8MD'});
+  </script>
+  
+
+
+<div class="container">
+    <br>
+    <div class="card amber darken-3">
+        <div class="card-content white-text">
+            <h3>Vielen Dank für Ihre Anfrage</h3>
+            <p class="flow-text">Ihre Bestätigung und die Rechnung erhalten sie binnen eines Werktages</p>
+            <br>
+        </div>
+    </div>
+
+    <div class="row hide">
+        <a href="{% url 'kran_test' %}">
+            <div class="col s12 m8 card grey lighten-3">
+                <div class="card-content grey-text text-darken-3 valign-wrapper">
+                    <i class="large material-icons" style="margin-right: 2rem;">school</i>
+                    <div>
+                        <h3 style="margin-top: 0rem;">Teste Sie sich Online</h3>
+                        <p class="flow-text">Legen Sie eine theoretische Beispiel Prüfung ab</p>
+                    </div>
+                    <i class="large material-icons" style="margin-left: 2rem;">arrow_forward</i>
+                    <br>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <br>
+    <h3>Unser Youtube Kanal</h3>
+    <div class="divider"></div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <div class="video-container">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/06CKZ6TT9Kw" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <h5 class="center">Wie funktionieren online wiederholungs Unterweisungen</h5>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <div class="video-container">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/CHd8xSCW8vg" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <h5 class="center">Wie läuft eine Kranunterweisung ab?</h5>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="icon-block">
+                <div class="video-container">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/1haGpuNeKOA" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <h5 class="center">Was passiert bei einem Unfall ohne Kranschein?</h5>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}

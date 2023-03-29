@@ -1,0 +1,189 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+    <!--Import materialize.css-->
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'
+        type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js"></script>
+
+    <link rel="stylesheet" href="{% static 'landingbuilder/css/editor.css' %}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify-css.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify-html.js"></script>
+
+    <script>
+        var token = '{{csrf_token}}';
+        var block_id = {{ block.id }};
+    </script>
+
+</head>
+
+<body class="grey">
+    <div style="display: grid; width: 100%; height: 100vh; grid-template-columns: auto auto; grid-gap: 5px;">
+        <div id="html"></div>
+        <div id="css"></div>
+        <div id="javascript"></div>
+        <div id="site" style="overflow: scroll; background-color: white;">{{ block.content|safe }}
+        </div>
+    </div>
+    <div id="show_button">
+        <i class="material-icons" id="icon_in_show">keyboard_arrow_down</i>
+    </div>
+    <div class="row_no_mat" id="admin_panel" style="position: absolute; z-index: 9999;">
+        <div class="container_no_mat">
+
+            <a href="/blocks/" class="custom_icon_button" style="border-right: 20px solid transparent;">
+                <i class="material-icons">keyboard_backspace</i>
+            </a>
+
+            <div> </div>
+
+            <div id="save" class="custom_icon_button" style="border-left: 20px solid transparent;">
+                <i class="material-icons">save</i>
+            </div>
+
+        </div>
+    </div>
+</body>
+<style>
+    #site * {
+        border: 1px dashed lightblue;
+    }
+</style>
+
+<script>
+    var html_editor;
+    var css_editor;
+    var js_editor;
+
+    $(document).ready(function () {
+        jQuery.fn.rotate = function (degrees) {
+            $(this).css({
+                '-webkit-transform': 'rotate(' + degrees + 'deg)',
+                '-moz-transform': 'rotate(' + degrees + 'deg)',
+                '-ms-transform': 'rotate(' + degrees + 'deg)',
+                'transform': 'rotate(' + degrees + 'deg)'
+            });
+            return $(this);
+        };
+
+        var rotate = 0;
+        $('#show_button').click(function () {
+            console.log("§asdölfkj");
+            $('#admin_panel').slideToggle('slow');
+            if (rotate == 0) {
+                rotate = 180;
+                $(this).rotate(rotate);
+            } else {
+                rotate = 0;
+                $(this).rotate(rotate);
+            }
+        });
+
+        $('#save').click(function () {
+            save();
+        });
+
+        $(document).keydown(function() {
+            console.log(get_html());
+            $('#site').html(get_html());
+        });
+
+        function get_html(){
+            var html = html_editor.getValue();
+            var css = css_editor.getValue();
+            var js = js_editor.getValue();
+
+            html = html.replace('({ style })','<style>'+css+'</style>');
+            html = html.replace('({ script })','<script>'+js+'</scr'+'ipt>');var html = html_editor.getValue();
+            var css = css_editor.getValue();
+            var js = js_editor.getValue();
+
+            html = html.replace('({ style })','<style>'+css+'</style>');
+            html = html.replace('({ script })','<script>'+js+'</scr'+'ipt>');
+
+            return html;
+        }
+
+        function save(n) {
+            $.ajax({
+                type: "POST",
+                url: '/save_block/' + block_id + '/',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({'html':get_html()}),
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", token);
+                },
+                success: function (data) {
+                    M.toast({html: 'Gespeichert'})
+                    console.log(data);
+                }
+            });
+        }
+
+        function init_code() {
+            $.ajax({
+                method: 'GET', url: '/get_block/' + block_id + '/',
+                success: function (data) {
+                    var val = html_beautify(data['html']);
+                    
+                    const style_1 = '<style>';
+                    const style_2 = '</style>';
+
+                    const script_1 = '<script>';
+                    const script_2 = '</scrip';
+
+                    var css = val.substring(val.indexOf(style_1)+style_1.length,val.indexOf(style_2));
+                    var js = val.substring(val.indexOf(script_1)+script_1.length,val.indexOf(script_2));
+
+                    const style_replacer = "({ style })";
+                    const script_replacer = "({ script })";
+
+                    val = val.replace((style_1+css+style_2),style_replacer);
+                    val = val.replace((script_1+js+script_2+"t>"),script_replacer);
+
+                    html_editor = ace.edit('html');
+                    html_editor.setTheme("ace/theme/monokai");
+                    html_editor.$blockScrolling = Infinity;
+                    html_editor.setValue(val, -1);
+                    html_editor.getSession().setMode("ace/mode/html");
+                    
+                    css_editor = ace.edit('css');
+                    css_editor.setTheme("ace/theme/monokai");
+                    css_editor.$blockScrolling = Infinity;
+                    css_editor.setValue(css, -1);
+                    css_editor.getSession().setMode("ace/mode/html");
+
+                    js_editor = ace.edit('javascript');
+                    js_editor.setTheme("ace/theme/monokai");
+                    js_editor.$blockScrolling = Infinity;
+                    js_editor.setValue(js, -1);
+                    js_editor.getSession().setMode("ace/mode/html");
+                    //editor.getSession().setUseWrapMode(true);
+                }
+            });
+        }
+
+        init_code()
+    });
+</script>
+
+</html>

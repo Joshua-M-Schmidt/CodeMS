@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="https://cdn.unterweisung-on-demand.de/schmidtschulungen/static/img/favicon.ico">
+
+    <!--Import materialize.css-->
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css' type='text/css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+
+    <link rel="stylesheet" type="text/css"
+    href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#283593"
+          },
+          "button": {
+            "background": "#fff",
+            "text": "#283593"
+          }
+        },
+        "theme": "classic",
+        "position": "bottom-left",
+        "content": {
+          "message": "Die Website verwendet Cookies, um Ihnen ein bestmögliches Angebot zu präsentieren. Nähere Informationen  finden Sie",
+          "dismiss": "Fortfahren",
+          "link": "hier.",
+          "href": "/datenschutz"
+        }
+      })
+    });
+  </script>
+
+    {% if user.is_superuser %}
+        <link rel="stylesheet" href="https://unpkg.com/grapesjs/dist/css/grapes.min.css">
+        <script src="https://unpkg.com/grapesjs"></script>
+        <link href="https://unpkg.com/grapick/dist/grapick.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/grapesjs-style-gradient"></script>
+        <script src="https://unpkg.com/grapesjs-parser-postcss"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.9/ace.js"></script>
+
+        <script src="{% static 'landingbuilder/js/editor.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'landingbuilder/css/editor.css' %}">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify-css.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.11.0/beautify-html.js"></script>
+    {% endif %}
+
+    <script>
+        var token = '{{csrf_token}}';
+        var page_id = {{ p.id }};
+    </script>
+
+</head>
+<body>
+    {% if user.is_superuser %}
+        <div id="editor" style="width: auto; height: 100vh; display: none;"></div>
+        <div id="content" style="width: auto; height: 100vh; display: none;"></div>
+        <div id="site"></div>
+        <div id="show_button">
+            <i class="material-icons" id="icon_in_show">keyboard_arrow_down</i>
+        </div>
+        <div class="row_no_mat" id="admin_panel" style="position: absolute;">
+            <div class="container_no_mat">
+
+                <a href="/pages/" class="custom_icon_button" style="border-right: 20px solid transparent;">
+                    <i class="material-icons">keyboard_backspace</i>
+                </a>
+
+                <div id="builder_editorbutton" class="custom_icon_button not_selected" style="border-radius: 12px 0 0 12px;">
+                    <i class="material-icons">build</i>
+                </div>
+
+                <div id="code_editorbutton" class="custom_icon_button not_selected" style="border-radius: 0 0 0 0;">
+                    <i class="material-icons">code</i>
+                </div>
+
+                <div id="normal" class="custom_icon_button selected" style="border-radius: 0 12px 12px 0;">
+                    <i class="material-icons">visibility</i>
+                </div>
+
+                <div id="save" class="custom_icon_button" style="border-left: 20px solid transparent;">
+                    <i class="material-icons">save</i>
+                </div>
+
+                <div> </div>
+
+                <div id="version_back" class="custom_icon_button not_selected" style="border-radius: 12px 0 0 12px;border-radius: 12px 0 0 12px;">
+                    <i class="material-icons">chevron_left</i>
+                </div>
+                <div id="revision" class="custom_text" style="background-color: rgb(45, 72, 153); border-radius: 0 0 0 0;">
+
+                </div>
+                <div id="version_forward" class="custom_icon_button not_selected deactivate_chevron" style="border-radius: 0 12px 12px 0;">
+                    <i class="material-icons">chevron_right</i>
+                </div>
+
+                <div id="save_new_version" class="custom_icon_button" style="border-left: 20px solid transparent;">
+                    <i class="material-icons">exposure_plus_1</i>
+                </div>
+
+            </div>
+        </div>
+
+    {% else %}
+    <div id="site">
+        {{ p.content|safe }}
+    </div>
+    {% endif %}
+
+</body>
+</html>

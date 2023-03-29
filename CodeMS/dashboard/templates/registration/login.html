@@ -1,0 +1,107 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Start | Schmidtschulungen</title>{% endblock %}
+{% block navigation %}
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+                <li><a href="{% url 'impressum' %}">Impressum</a></li>
+                <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+             </ul>
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+                <li><a href="{% url 'impressum' %}">Impressum</a></li>
+                <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+            </ul>
+{% endblock %}
+
+{% block content %}
+
+<style>
+    input:not([type]), 
+    input[type=text]:not(.browser-default),
+    input[type=password]:not(.browser-default),
+    input[type=email]:not(.browser-default),
+    input[type=url]:not(.browser-default),
+    input[type=time]:not(.browser-default),
+    input[type=date]:not(.browser-default),
+    input[type=datetime]:not(.browser-default),
+    input[type=datetime-local]:not(.browser-default),
+    input[type=tel]:not(.browser-default),
+    input[type=number]:not(.browser-default),
+    input[type=search]:not(.browser-default),
+    textarea.materialize-textarea,
+    #id_password,
+    #id_username,
+    input[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+  
+    .title { 
+      background-color: #ffffff99;
+      color: #444; 
+      display: inline;
+      font-size: 2rem;
+      padding: 0.5rem;
+      line-height: 3.6rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+  
+    label{
+      color: #fff;
+      font-size: 1em;
+    }
+  
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+
+
+<div class="container">
+    <div class="row" style="margin-top: 15vh; margin-bottom: 15vh;">
+            <div class="col s4 push-s4">
+                    <div id="angebot" class="row card amber darken-3" style="padding-bottom: 1em;">
+                      <div class="card-content white-text">
+                        <span class="card-title" style="font-size: 2em;">Login</span>
+                        <br>
+                              
+                        <form method="post">
+                          {% csrf_token %}
+                          {{ form.as_p }}
+                          <input type="submit" value="Login">
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+
+{% block navigation_footer %}
+  <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+  <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}

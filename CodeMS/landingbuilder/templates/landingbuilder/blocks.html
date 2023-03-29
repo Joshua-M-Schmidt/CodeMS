@@ -1,0 +1,123 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Blocks | Schmidtschulungen</title>{% endblock %}
+{% block breadcrumb %}
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+<br>
+<br>
+<div class="container">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <div class="row" style="display: table; width: 100%;">
+        <div style="display:table-cell; width: 100%; padding:0; vertical-align: bottom;">
+            <h3 style="margin:0; padding: 0;" class="grey-text">Alle Blocks</h3>
+        </div>
+
+        <div style="display:table-cell; vertical-align: bottom;">
+            <a href="/admin/landingbuilder/block/add/">
+                <div class="grey white-text chip">
+                    neu
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <div class="row divider"></div>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        .centre-align {
+            padding: 10px;
+            display: table-cell;
+            text-align: right;
+            vertical-align: middle;
+        }
+
+        .version-badge {
+            padding: 3px;
+            border-radius: 5px;
+            min-width: 30px;
+            text-align: center;
+            margin-left: 1rem;
+            font-size: 0.8rem;
+        }
+    </style>
+
+    
+    <div style="margin: 0;">
+        <div style="display:table; width: 100%;">
+            {% for block in blocks %}
+            <div style="display:table-row;">
+                <a href="" style="line-height:1rem;display: table-cell; vertical-align: middle;">
+                    <i class="fa {{block.fa_icon}} grey-text" style="margin-right: 2rem;"></i>
+                </a>
+                <a href="/block_edit/{{ block.id }}/" style="width:100%; vertical-align: middle; display: table-cell;">
+                    <p style="margin-bottom: 15px; margin-top: 15px; padding:0;" class="grey-text text-darken-3"><b>{{ block.label }}</b><span
+                            style="font-size: 1rem;" class="grey-text"> /{{ block.identifier}}</span></p>
+                </a>
+  
+
+                {% if block.category %}
+                <div style="margin:0; padding-top:0; padding-bottom:0; display: table-cell; vertical-align: middle;">
+                    <div style="margin:0; padding-top:0;"
+                        class="{{ block.category.color }} lighten-3 {{ block.category.color }}-text text-darken-3 chip">
+                        <b style="margin:0;">{{ block.category.title }}</b>
+                    </div>
+                </div>
+                {% else %}
+                <div style="margin:0; padding-top:0; padding-bottom:0; display: table-cell; vertical-align: middle;">
+                   
+                </div>
+                {% endif %}
+
+                <a href="/admin/landingbuilder/block/{{ block.id }}/change/"
+                    style="line-height:1rem;display: table-cell; vertical-align: middle;">
+                    <i class="material-icons grey-text" style="margin-left: 2rem;">edit</i>
+                </a>
+
+                <a href="#delete_page_modal_{{ block.id }}" class="modal-trigger"
+                style="line-height:1rem;display: table-cell; vertical-align: middle;">
+                    <i class="material-icons red-text text-darken-2" style="margin-left: 2rem;">delete</i>
+                </a>
+
+                <div id="delete_page_modal_{{ block.id }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="red-text text-darken-2">Achtung</h4>
+                        <p>Wollen sie die Seite <b>{{ page.name}}</b> wirklich löschen?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/delete_block/{{ block.id }}/" class="modal-close waves-effect waves-green btn-flat">Ja</a>
+                        <a href="#" class="modal-close waves-effect waves-green btn-flat">Nein</a>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#delete_page_modal_{{ block.id }}').modal();
+                        });
+                    </script>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+<br>
+<br>
+<br>
+{% endblock %}
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+{% endblock %}

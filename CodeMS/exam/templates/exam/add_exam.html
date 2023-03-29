@@ -1,0 +1,80 @@
+{% extends "landing/base.html" %}
+{% load static %}
+{% block title %}<title>Test | Schmidtschulungen</title>{% endblock %}
+{% block navigation %}
+<ul class="right hide-on-med-and-down">
+  <li><a class="white-text" href="{% url 'kran_landing_privat' %}">Start</a></li>
+  <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+  <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+<ul id="nav-mobile" class="sidenav">
+  <li><a class="white-text" href="{% url 'kran_landing_privat' %}">Start</a></li>
+  <li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+  <li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+  <li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col s12 valign-wrapper">
+      <div>
+          <h3 class="grey-text">Prüfung Hinzufügen</h3>
+      </div>
+        
+    </div>
+    
+  </div>
+  <div class="card">
+    <br>
+    <div class="card-content">
+      <div clas="row">
+      </div>
+
+      <br>
+      <div class="row" id="question_container">
+            <form class="col s12" action="{% url 'new_exam' %}" method="post">
+                        
+                {% csrf_token %}
+                {{ add_form.non_field_errors }}
+
+                {% for hidden_field in add_form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                {% endfor %}
+
+                {% for field in add_form.visible_fields %}
+                
+                    
+                    {{ field.errors }}
+                    <div class="input-field">
+                            {{ field.label_tag }}
+                            {{ field }}
+                    </div>
+                    
+                    {{ field.help_text }}
+                
+                {% endfor %}
+            
+            
+                
+                <input type="submit" class="btn" value="hinzufügen">
+            </form>
+      </div>
+    
+    </div>
+  </div>
+  <br>
+</div>
+{% endblock %}
+
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'kran_landing' %}">Start</a></li>
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}

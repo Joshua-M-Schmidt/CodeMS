@@ -1,0 +1,477 @@
+{% extends "landing/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Info | Schmidtschulungen</title>
+<link href="{% static 'css/info_style.css' %}" type="text/css" rel="stylesheet" />
+<script src="{% static 'js/angebot.js' %}"></script>
+{% endblock %}
+
+{% block navigation %}
+<ul class="right hide-on-med-and-down">
+    <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+    <li><a href="{% url 'impressum' %}">Impressum</a></li>
+    <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+<ul id="nav-mobile" class="sidenav">
+    <li><a href="{% url 'datenschutz' %}">Datenschutz</a></li>
+    <li><a href="{% url 'impressum' %}">Impressum</a></li>
+    <li><a href="{% url 'kontakt' %}">Kontakt</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<script>
+    gtag('event', 'conversion', { 'send_to': 'AW-946984920/wcarCPLfsZoBENivx8MD' });
+
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+</script>
+
+<div class="row white-text" id="all">
+    </br></br></br>
+    <div class="container" style="position: relative;">
+        <div class="">
+            <span class="card-title title" style="font-size: 3em; line-height: 5rem;">Unser Angebot</span> </br>
+            <strong class="title" style="font-size: 1em; line-height: 3rem;">bei Ihnen vor Ort</strong>
+        </div>
+        </br>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col m4">
+                <div class="center">
+                    <img src="{% static 'img/Hebebühne_Mockup.png' %}" alt="" class="center responsive-img">
+                    <h5>Hebebühnenschulung</h5>
+                    </br>
+                </div>
+                <ul>
+                    <li>
+                        <div class="valign-wrapper light">
+                            <i class="Small material-icons" style="margin: 0em 1em 0em 0em;">check</i>
+                            Mit unserer Unterweisung erfüllen Sie </br>ArbSchG §12 Abs 1
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper light"><i class="Small material-icons"
+                                style="margin: 0em 1em 0em 0em;">check</i>
+                            Zudem erfüllen Sie DGUV Grundsatz 308-008
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper light"><i class="Small material-icons"
+                                style="margin: 0em 1em 0em 0em;">check</i>
+                            Der Zeitaufwand für Theorie, Praxis und Prüfungen beträgt 1 Tag
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                </ul>
+            </div>
+            <div class="col m4">
+                <div class="center">
+                    <img src="{% static 'img/Stapler_Mockup.png' %}" alt="" class="center responsive-img">
+                    <h5>Staplerschulung</h5>
+                    </br>
+                    <p class="light center"></p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="valign-wrapper light">
+                            <i class="Small material-icons" style="margin: 0em 1em 0em 0em;">check</i>
+                            Mit unserer Unterweisung erfüllen Sie </br>DGUV Vorschrift 68
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper light"><i class="Small material-icons"
+                                style="margin: 0em 1em 0em 0em;">check</i>
+                            Zudem erfüllen Sie DGUV Grundsatz 308-001
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper light"><i class="Small material-icons"
+                                style="margin: 0em 1em 0em 0em;">check</i>
+                            Der Zeitaufwand für Theorie, Praxis und Prüfungen beträgt 1-2 Tag
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+
+                </ul>
+            </div>
+            <div class="col m4">
+                <div class="center">
+
+                    <img src="{% static 'img/Kran_Mockup.png' %}" alt="" class="center responsive-img">
+                    <h5>Kranschulung</h5>
+                    </br>
+                    <p class="light center"></p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="valign-wrapper light">
+                            <i class="Small material-icons" style="margin: 0em 1em 0em 0em;">check</i>
+                            Mit unserer Unterweisung erfüllen Sie DGUV Vorschrift V52 § 29
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper light"><i class="Small material-icons"
+                                style="margin: 0em 1em 0em 0em;">check</i>
+                            Zudem erfüllen Sie DGUV Grundsatz 309-003
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper light"><i class="Small material-icons"
+                                style="margin: 0em 1em 0em 0em;">check</i>
+                            Der Zeitaufwand für Theorie, Praxis und Prüfungen beträgt 1 Tag
+                        </div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper light"><i class="Small material-icons"
+                                style="margin: 0em 1em 0em 0em;">picture_as_pdf</i>
+                                <a href="https://cdn.unterweisung-on-demand.de/Tagesablauf_Kranführer_01_2020_neu.pdf" target="_blank" class="btn amber darken-2 white-text">Tagesablauf</a>
+                        </div>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+    <div class="container hide-on-small-only">
+        </br>
+        </br>
+    </div>
+
+
+</div>
+
+
+
+</br>
+
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <div class="hide-on-small-only">
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="row hide-on-small-only">
+                    <div class="col s12  card" id="phone_card">
+                        <div class="card-content white-text valign-wrapper">
+                            <i class="medium material-icons " style="margin-right: 2rem;">local_phone</i>
+                            <div>
+                                <h5 style="margin-top: 0rem;">Telefonberatung</h5>
+                                <p>unter Tel.: 08333 95304</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>Warum Kranservice Schmidt</h4>
+                <div class="divider"></div>
+                <br>
+                <ul>
+                    <li>
+                        <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                                style="margin: 1em;">check</i>Mit uns haben Sie Rechtsicherheit. Unsere Unterweisungen
+                            genügen der DGUV
+                            Vorschrift 52 und DGUV Grundsatz 309-003</div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                                style="margin: 1em;">check</i>Bereits 6000 erfolgreiche Teilnehmer. Mehr als 120 Firmen
+                            vertrauen uns bereits Ihre Kranschulung an</div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                                style="margin: 1em;">check</i>Die Präsentation ist modern und anschaulich. Ihre Inhalte
+                            bewährt</div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                    <li>
+                        <div class="valign-wrapper" style="font-size: 1.3em;"><i class="Small material-icons"
+                                style="margin: 1em;">check</i>Als ABUS Service Partner garantieren wir Ihnen höchste
+                            Qualität und
+                            Kompetenz in Sachen Kran. 24 Jahre Erfahrung sprechen für sich</div>
+                    </li>
+                    <div style="margin-top: 0.5em;"></div>
+                </ul>
+                <br>
+                <br>
+            </div>
+
+            <div class="col s12 m5 offset-m1">
+                <div class="row">
+                    <div class="card col s12" id="request_card">
+                        <div class="card-content white-text">
+                            <span class="card-title" style="font-size: 2em;">Angebot Anfordern</span>
+                            <strong>in 1-2 Werktagen</strong>
+                            <br>
+                            <br>
+                            <div class="row" style="margin-bottom: 0;">
+                                <form class="col s12">
+                                    <div class="row" style="margin-bottom: 0;">
+                                        <div class="input-field col s6">
+                                            <input id="name" type="text" class="validate">
+                                            <label for="name">Name</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="phone" type="number" class="validate">
+                                            <label for="phone">Telefon</label>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 0;">
+                                        <div class="input-field col s12">
+                                            <input id="email" type="email" class="validate">
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 0;">
+                                        <div class="input-field col s8">
+                                            <input id="firma" type="text" class="validate">
+                                            <label for="firma">Firma</label>
+                                        </div>
+                                        <div class="input-field col s4">
+                                            <input id="postleitzahl" type="number" class="validate">
+                                            <label for="postleitzahl">Postleitzahl</label>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 0;">
+                                        <div class="input-field col s8">
+                                            <select id="schulungen" multiple required="required">
+                                                <option value="" disabled selected>Schulungen wählen</option>
+                                                <option value="1">Hallenkran</option>
+                                                <option value="2">Hebebühne</option>
+                                                <option value="3">Stapler</option>
+                                            </select>
+                                            <label>Schulungen</label>
+                                        </div>
+                                        <div class="input-field col s4">
+                                            <input id="teilnehmer" type="number" class="validate">
+                                            <label for="teilnehmer">Teilnehmer</label>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 0;">
+                                        <div class="input-field col s12">
+                                            <textarea id="komentar" class="materialize-textarea validate"></textarea>
+                                            <label for="komentar">Komentar (optional)</label>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 0;">
+                                        <div class="col s12" style="margin-bottom: 0;">
+                                            <div id="request"
+                                                class="btn waves-effect waves-light white indigo-text text-darken-3">
+                                                Absenden
+                                                <i class="material-icons right">send</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12" style="padding: 0rem 0rem 0rem 0rem;">
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">info</i>Für welche Krane gilt
+                                    die Kranschulung?</div>
+                                <div class="collapsible-body"><span>Die Kranschulung gilt für Hallenkrane und
+                                        Brückenkrane und <b>nicht für Baukrane</b>. An einer Unterweisung für
+                                        LKW-Laderkrane wird gearbeitet</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="row">
+                    <h4>Der Referent</h4>
+                    <div class="divider"></div>
+                    <br>
+                    <div class="col s12 m5 l4">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/zim6UfnE2zU" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+
+                    <div class="col s12 m7 l8" style="font-size: 1.3em;">
+                        <div><strong>Michael Schmidt</strong></div>
+                        <br>
+                        <div>Seit 1996 bin ich als freiberuflicher Ausbilder für Kran- und Staplerführer, als
+                            Kransachkundiger
+                            und Servicepartner der ABUS Kransysteme GmbH im süddeutschen Raum tätig. In dieser Zeit
+                            hatte ich über
+                            6000 erfolgreiche Schulungsteilnehmer.</div>
+                        <br>
+                        <a class="btn modal-trigger green" href="#modal1">Qualifikationen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <h4>Was sagen unsere Kunden?</h4>
+        </div>
+        <div class="divider"></div>
+        <br>
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block center">
+                    <img src="{% static 'img/Fischer-Edelstahlrohre1-min.jpg' %}" alt="" class="center responsive-img">
+                    <h5 class="center">Thomas Gaiser <br> <span class="grey-text" style="font-size: 0.5em;">Fischer
+                            Edelstahlrohre GmbH</span> </h5>
+                    <p class="light">
+                        Wir arbeiten seit Jahren mit der Fa. Kranservice Schmidt. Die Schulungen sind
+                        effizient, das Sicherheitsbewusstsein unserer Mitarbeiter wird positiv verändert.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block center">
+                    <img src="{% static 'img/kunde_muehlb1-min.jpg' %}" alt="" class="center responsive-img"></h2>
+                    <h5 class="center">Thomas Mühlbauer <br> <span class="grey-text" style="font-size: 0.5em;">Rampp
+                            Maschinenbau GmbH Co. KG</span></h5>
+
+                    <p class="light">
+                        Über viele Jahre ist die Fa. Kranservice Michael Schmidt ein verlässlicher
+                        Partner
+                        an unserer Seite. Sie ist unser Ansprechpartner Nr.1 in allen Belangen rund um Service und
+                        Schulungen. Der kompetente und unkomplizierte Umgang ist besonders hervorzuheben.</p>
+                </div>
+            </div>
+
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h3>Qualifikationen</h3>
+                    </br>
+
+                    <div class="collection">
+                        <a href="https://cdn.unterweisung-on-demand.de/Meisterbrief_Michael_Schmidt.pdf" target="_blank" class="collection-item">Meisterbrief (PDF)</a>
+                        <a href="https://cdn.unterweisung-on-demand.de/Sachverständigenausbildung_Michael_Schmidt.pdf" target="_blank" class="collection-item">Sachverständigenausbildung (PDF)</a>
+                        <a href="https://cdn.unterweisung-on-demand.de/Zertifikat_Ausbilder_für_Kranführer.pdf" target="_blank" class="collection-item">Kranführer Ausbilder Zertifikat (PDF)</a>
+                      </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">schließen</a>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h5 class="center"><a
+                            href="https://www.google.com/search?source=hp&ei=D7enXLnyH--FmwWMnLHwBQ&q=kranservice+schmidt&btnK=Google-Suche&oq=kranservice+schmidt&gs_l=psy-ab.3..0i22i30l2.1149.3847..3980...0.0..0.101.1373.17j2....2..0....1..gws-wiz.....0..0j0i131j0i10j0i22i10i30.5uRe7kqHO3c#btnK=Google-Suche&lrd=0x479bf9635e34608f:0x74918f5c9d898a86,1,,,">Google
+                            Bewertungen</a></h5>
+                    <div id="google-reviews"><br>
+                        <div class="review-item">
+                            <div class="review-meta"><span class="review-author">Ma K.</span><span
+                                    class="review-sep"></span></div>
+                            <div class="review-stars">
+                                <ul>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                </ul>
+                            </div>
+                            <p class="review-text">Guter Kurs - zum weiterempfehlen nur .. sehr informativ reich</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-meta"><span class="review-author">Alfred J.</span><span
+                                    class="review-sep"></span>
+                            </div>
+                            <div class="review-stars">
+                                <ul>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                </ul>
+                            </div>
+                            <p class="review-text">Die Schulung war sehr interessant und informativ</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-meta"><span class="review-author">Reiner H.</span><span
+                                    class="review-sep"></span>
+                            </div>
+                            <div class="review-stars">
+                                <ul>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                </ul>
+                            </div>
+                            <p class="review-text">Top Kranschulung viel neues erfahren!</p>
+                        </div>
+                        <div class="review-item">
+                            <div class="review-meta"><span class="review-author">Alexander W.</span><span
+                                    class="review-sep"></span>
+                            </div>
+                            <div class="review-stars">
+                                <ul>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                    <li><i class="star"></i></li>
+                                </ul>
+                            </div>
+                            <p class="review-text"></p>
+                        </div>
+                    </div><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <h4>Wer sind unsere Kunden?</h4>
+    <div class="divider"></div>
+    <br>
+    <div class="row">
+        <img class="col m2 s4 responsive-img" src="{% static 'img/ABUS_Logo-min.jpg' %}"></a>
+        <img class="col m2 s4 responsive-img" src="{% static 'img/AMG_Logo-min.jpg' %}"></a>
+        <img class="col m2 s4 responsive-img" src="{% static 'img/BMW_Logo-min.jpg' %}"></a>
+        <img class="col m2 s4 responsive-img" src="{% static 'img/Porsche_Logo-min.jpg' %}"></a>
+        <img class="col m2 s4 responsive-img" src="{% static 'img/Siemens_Logo-min.jpg' %}"></a>
+        <img class="col m2 s4 responsive-img" src="{% static 'img/wuerth_logo-min.jpg' %}"></a>
+    </div>
+    <a style="font-size: 1.5rem;" href="{% url 'referenzen' %}">Referenzliste</a>
+    <br>
+    <br>
+    <br>
+</div>
+{% endblock %}
+
+
+{% block navigation_footer %}
+<li><a class="white-text" href="{% url 'datenschutz' %}">Datenschutz</a></li>
+<li><a class="white-text" href="{% url 'impressum' %}">Impressum</a></li>
+<li><a class="white-text" href="{% url 'kontakt' %}">Kontakt</a></li>
+{% endblock %}
