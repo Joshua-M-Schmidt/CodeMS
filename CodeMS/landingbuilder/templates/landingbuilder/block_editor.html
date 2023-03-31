@@ -36,12 +36,16 @@
 </head>
 
 <body class="grey">
-    <div style="display: grid; width: 100%; height: 100vh; grid-template-columns: auto auto; grid-gap: 5px;">
-        <div id="html"></div>
-        <div id="css"></div>
-        <div id="javascript"></div>
-        <div id="site" style="overflow: scroll; background-color: white;">{{ block.content|safe }}
+    <div style="display: flex; width: 100vw; height: 100vh; flex-direction: column">
+        <div style="display: flex; flex: 1; flex-direction: row;">
+            <div style="flex: 1; margin: 3px;" id="html"></div>
+            <div style="flex: 1; margin: 3px;" id="css"></div>
         </div>
+        <div style="display: flex; flex: 1; flex-direction: row;">
+            <div style="flex: 1; margin: 3px;" id="javascript"></div>
+            <div style="flex: 1; margin: 3px;" id="site" style="overflow: scroll; background-color: white; ">{{ block.content|safe }}
+        </div>
+    </div>
     </div>
     <div id="show_button">
         <i class="material-icons" id="icon_in_show">keyboard_arrow_down</i>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import page, page_version, Category, Id_Category, Identifier, Hit, Block, BlockCategories
+from .models import page, page_version, Category, Id_Category, Identifier, Hit, Block, BlockCategory
 from landing.models import CourseRequest
 from front.models import Placeholder
 
@@ -11,5 +11,5 @@ admin.site.register(Id_Category)
 admin.site.register(Identifier)
 admin.site.register(Hit)
 admin.site.register(Block)
-admin.site.register(BlockCategories)
+admin.site.register(BlockCategory)
     

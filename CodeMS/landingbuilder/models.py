@@ -41,17 +41,24 @@ class page(models.Model):
     def __str__(self):
         return self.name
 
-class BlockCategories(models.Model):
+class BlockCategory(models.Model):
     title = models.CharField(max_length=255, verbose_name="Title")
     color = models.CharField(max_length=255, default="grey")
     def __str__(self):
         return self.title
+
 class Block(models.Model):
     identifier = models.CharField(unique=True, max_length=200)
     label = models.CharField(unique=True, max_length=200)
-    category = models.ForeignKey(BlockCategories,on_delete=models.CASCADE)
-    content = models.TextField(blank=True)
+    category = models.ForeignKey(BlockCategory,on_delete=models.CASCADE)
+    content = models.TextField(blank=False, default='''<div> empty </div>
+<!-- do not touch -->
+<script>// javascript </script>
+<style>// css</style>''')
     fa_icon = models.CharField(unique=True, max_length=200)
+
+    def __str__(self):
+        return self.label
 
 class Hit(models.Model):
     source_identifier = models.CharField(max_length=200, default='')

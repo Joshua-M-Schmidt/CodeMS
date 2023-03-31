@@ -1,68 +1,46 @@
 {% extends "landing/base.html" %}
 {% load static %}
-{% block title %}<title>Dashboard | Schmidtschulungen</title>{% endblock %}
+{% block title %}<title>Dashboard</title>{% endblock %}
 {% block breadcrumb %}
-<nav class="indigo darken-4">
-        <div class="nav-wrapper container ">
-          <div class="col s12">
-            <a href="/dashboard" class="breadcrumb">Dashboard</a>
-          </div>
-        </div>
-      </nav>
-              
 {% endblock %}
 {% block content %}
 <br>
 <br>
 <div class="container">
 
+    <div class="row" style="display: table; width: 100%;">
+        <div style="display:table-cell; width: 100%; padding:0; vertical-align: bottom;">
+            <h3 style="margin:0; padding: 0;" class="grey-text">Requests</h3>
+        </div>
+
+    </div>
+    <div class="row divider"></div>
+
     <div class="row">
         <div class="col s12 m6">
-            <span class="card-title" style="font-size: 2em;">Anfragen</span>
-            
             {% if requests %}
                 {% for request in requests %}
-                    <div class="divider"></div>
-                    <p>{{request.course_type}} {{request.customer_anschrift}} {{request.customer_anzahl_teilnehmer}} Personen <a class="red-text align-right" href="delete_request/{{request.id}}"><i class="material-icons">remove_circle</i></a></p>
-           
+                <div style="display:table; width: 100%;">
+                    <div style="width:100%; vertical-align: middle; display: table-cell;">
+                        <p style="margin-bottom: 15px; margin-top: 15px; padding:0;" class="grey-text text-darken-3"><b>{{ block.label }}</b><span
+                                style="font-size: 1rem;" class="grey-text"> /{{ request.course_type}}</span></p>
+                    </div>
+                    <div
+                        style="line-height:1rem;display: table-cell; vertical-align: middle;">
+                        {{request.customer_anschrift}}
+                    </div>
+                    <div
+                        style="line-height:1rem;display: table-cell; vertical-align: middle;">
+                        {{request.customer_anzahl_teilnehmer}}
+                    </div>
+                    <a href="delete_request/{{request.id}}"
+                        style="line-height:1rem;display: table-cell; vertical-align: middle;">
+                        <i class="material-icons">remove_circle</i>
+                    </a>
+                </div>
                 {% endfor %}
             {% endif %}
         </div>
-        <div class="col s12 m6">
-            <div class="card-title" style="font-size: 2em;">Schulungstermine <a class="green-text align-right" href="{% url 'addDate' %}"><i class="material-icons">add_circle</i></a></div>
-            <div class="divider"></div>
-            {% if course_dates %}
-                {% for course_date in course_dates %}
-                    <div class="divider"></div>
-                    <p>{{course_date.date}} {{course_date.location_post_id}} {{course_date.location}} <a class="grey-text align-right" href="edit_course/{{course_date.id}}"><i class="material-icons">edit</i></a><a class="red-text align-right" href="delete_date/{{course_date.id}}"><i class="material-icons">remove_circle</i></a></p>
-                {% endfor %}
-            {% endif %}
-
-            
-        </div>
-        <div class="col s12 m6">
-                <div class="card-title" style="font-size: 2em;">Anmeldungen</div>
-                <div class="divider"></div>
-                {% if course_registrations %}
-                    {% for course_registration in course_registrations %}
-                        <div class="divider"></div>
-                        <p>{{course_registration.customer_name}} {{course_registration.customer_email}} {{course_registration.location}} 
-                            <a class="red-text align-right" href="delete_date/{{course_date.id}}"><i class="material-icons">remove_circle</i></a></p>
-                    {% endfor %}
-                {% endif %}                
-            </div>
-
-            <div class="col s12 m6">
-                <div class="card-title" style="font-size: 2em;">Prüfungen  <a class="green-text align-right" href="{% url 'new_exam' %}"><i class="material-icons">add_circle</i></a></div>
-                <div class="divider"></div>
-                {% if exams %}
-                    {% for exam in exams %}
-                        <div class="divider"></div>
-                        <p>{{exam.exam_name}}
-                            <a class="grey-text align-right" href="{% url 'edit_exam' exam.id %}"><i class="material-icons">edit</i></a></p>
-                    {% endfor %}
-                {% endif %}                
-            </div>
     </div>
 </div>
 <br>

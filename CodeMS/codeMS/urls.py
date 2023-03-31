@@ -22,7 +22,6 @@ from django.conf.urls import include
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
-from landing_private.models import CourseDate, CourseRegistration
 from landing.models import CourseRequest
 from landingbuilder.models import page
 from rest_framework import permissions
@@ -60,12 +59,6 @@ class CourseRequestSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['course_type', 'customer_name', 'customer_email', 'customer_anschrift','customer_plz','customer_anzahl_teilnehmer',]
         optional_fields = ['customer_phone','customer_komentar', ]
 
-
-class CourseDateSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = CourseDate
-        fields = ['date', 'time', 'cost', 'status','location','location_post_id']
-
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
@@ -75,11 +68,6 @@ class PageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = page
         fields = ['id','slug', 'name', 'description', 'admin']
-
-class CourseRegistrationSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = CourseRegistration
-        fields = ['course_type', 'customer_name', 'customer_email', 'customer_anschrift','customer_plz','customer_anzahl_teilnehmer','customer_komentar']
 
 # ViewSets define the view behavior.
 class CourseRequestSet(viewsets.ModelViewSet):
@@ -129,53 +117,17 @@ class PageViewSet(viewsets.ModelViewSet):
             permission_classes = [IsAdminUser]
         return [permission() for permission in permission_classes]
 
-class CourseDateViewSet(viewsets.ModelViewSet):
-    queryset = CourseDate.objects.all()
-    serializer_class = CourseDateSerializer
-
-    def get_permissions(self):
-        permission_classes = []
-        if self.action == 'create':
-            permission_classes = [IsAdminUser]
-        elif self.action == 'list':
-            permission_classes = [IsAdminOrAnonymousUser]
-        elif self.action == 'retrieve' or self.action == 'update' or self.action == 'partial_update':
-            permission_classes = [IsAdminUser]
-        elif self.action == 'destroy':
-            permission_classes = [IsAdminUser]
-        return [permission() for permission in permission_classes]
-
-class CourseRegistrationViewSet(viewsets.ModelViewSet):
-    queryset = CourseRegistration.objects.all()
-    serializer_class = CourseRegistrationSerializer
-
-    def get_permissions(self):
-        permission_classes = []
-        if self.action == 'create':
-            permission_classes = [IsAdminOrAnonymousUser]
-        elif self.action == 'list':
-            permission_classes = [IsAdminUser]
-        elif self.action == 'retrieve' or self.action == 'update' or self.action == 'partial_update':
-            permission_classes = [IsAdminUser]
-        elif self.action == 'destroy':
-            permission_classes = [IsAdminUser]
-        return [permission() for permission in permission_classes]
-
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'course_dates',CourseDateViewSet)
-router.register(r'course_registrations',CourseRegistrationViewSet)
 router.register(r'course_requests',CourseRequestSet)
 router.register(r'pages',PageViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('landing.urls')),
-    path('',include('landing_private.urls')),
     path('',include('documents.urls')),
     path('dashboard/',include('dashboard.urls')),
-    path('',include('exam.urls')),
     path('',include('django.contrib.auth.urls')),
     path('anymail/',include('anymail.urls')),
     path('front-edit/', include('front.urls')),

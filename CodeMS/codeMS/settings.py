@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing',
-    'landing_private',
-    'exam',
     'dashboard',
     'documents',
     'django.core.mail',
@@ -58,6 +56,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'landingbuilder',
 ]
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -162,14 +162,10 @@ TIME_INPUT_FORMATS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-if DEBUG:
-    STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-    VENV_PATH = os.path.dirname(BASE_DIR)
+VENV_PATH = os.path.dirname(BASE_DIR)
 
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
-else:
-    STATIC_URL = 'https://cdn.unterweisung-on-demand.de/schmidtschulungen/static/'
-    MEDIA_URL = 'https://cdn.unterweisung-on-demand.de/schmidtschulungen/media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
