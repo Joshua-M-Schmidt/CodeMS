@@ -56,8 +56,10 @@ these are elements that you can use again later when you are building your pages
 
 first you need to add `BlockCategories`, go to `/admin/landingbuilder/blockcategory/add/` and add
 for example:
-**Title:** `navigation`, **Color:** `gray`
-**Title:** `section`, **Color:** `red`
+| Field | Value |
+| --- | --- | 
+|**Title**| `navigation`|
+|**Color** |`gray`|
 
 these categories are later used in the drag and drop editor to group the blocks
 
@@ -65,30 +67,27 @@ these categories are later used in the drag and drop editor to group the blocks
 
 then you can add `Blocks`, go to `/admin/landingbuilder/block/add/` and add the following:
 
-**Identifier** *unique name for block without spaces*: `navbar_1`
-**Label** *name that is displayed to you*: `Navbar`
-**Category** *now select one of the above defined categories*: `navigation`
-**Content** *html, css and javascript you can leave blanc for now*
-**Fa icon** *font awesome icon to display in drag and drop editor*: `fa-solid fa-compass`
+| Field | Description | Value |
+| --- | --- | --- |
+|**Identifier**| *unique name for block without spaces*| `navbar_1` |
+|**Label**| *name that is displayed to you*| `Navbar`|
+|**Category**| *now select one of the above defined categories*| `navigation`|
+|**Fa icon**| *font awesome icon to display in drag and drop editor*| `fa-solid fa-compass`|
 
 ### Pages
 
 To add a page you also need to add categories for the pages, go to `/admin/landingbuilder/pagecategory/add/` and add
 
-**Title:** `Landing`, **Color:** `green`
+| Field | Value |
+| --- | --- | 
+|**Title** | `Landing`| 
+|**Color**| `green`|
 
-now you can add pages, go to `/admin/landingbuilder/page/add/` and add the following:
+now you can add pages, go to `/admin/landingbuilder/page/add/` and fill in the following:
 
-| Field | Description | `Home` |
+| Field | Description | Value |
 | --- | --- | --- |
-| **Title** | `Home` | `Home` |
-**Revision** *unique name for block without spaces*: `navbar_1`
-**Sub Version** *name that is displayed to you*: `Navbar`
-**Category** *now select one of the above defined categories*: `navigation`
-**Json content** *html, css and javascript you can leave blanc for now*
-**Hits** *font awesome icon to display in drag and drop editor*: `fa-solid fa-compass`
-**Offers** *font awesome icon to display in drag and drop editor*: `fa-solid fa-compass`
-**Slug** *font awesome icon to display in drag and drop editor*: `fa-solid fa-compass`
-**Name** *font awesome icon to display in drag and drop editor*: `fa-solid fa-compass`
-**Description** *font awesome icon to display in drag and drop editor*: `fa-solid fa-compass`
-**Description** *font awesome icon to display in drag and drop editor*: `fa-solid fa-compass`
+|**Slug** |*used as address of the page*| `"landing"`|
+|**Name** |*name displayed in the backend*| `"Landing page"`|
+|**Description** |*description showen in the backend*| `"page for lead generation"`|
+|**Admin** |*if true, only the admin can view the page, its advised to change later*| `True`|
