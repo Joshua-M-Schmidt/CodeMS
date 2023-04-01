@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'landing',
     'dashboard',
-    'documents',
     'django.core.mail',
     'anymail',
     'front',

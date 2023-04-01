@@ -126,7 +126,6 @@ router.register(r'pages',PageViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('landing.urls')),
-    path('',include('documents.urls')),
     path('dashboard/',include('dashboard.urls')),
     path('',include('django.contrib.auth.urls')),
     path('anymail/',include('anymail.urls')),
