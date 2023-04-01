@@ -2,6 +2,9 @@
 
 this is a lightweight django project especially suited for landing pages. It allows you to define endpoints in the backend and then edit the website in the frontend. Changes to text and images and even functionalities can be done without touching the backend and within minutes.
 
+![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/pages.png?raw=true)
+
+
 ## Run this project
 
 Set up the virtual environment
@@ -100,6 +103,7 @@ now if you go to `/pages` it should look like this:
 
 ![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/pages.png?raw=true)
 
-clock on the page you just created and you should see an empty page, click on the wrench in the bottom right corner and you see the GrapeJS editor, drag the starter template into the editor and you should see something like this:
+click on the page you just created and you should see an empty page, click on the wrench in the bottom right corner and you see the [GrapeJS editor (github)](https://github.com/GrapesJS/grapesjs), drag the starter template into the editor and you should see something like this:
 
-![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/pages.png?raw=true)
+
+![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/starter.png?raw=true)
