@@ -2,7 +2,7 @@
 
 this is a lightweight django project especially suited for landing pages. It allows you to define endpoints in the backend and then edit the website in the frontend. Changes to text and images and even functionalities can be done without touching the backend and within minutes.
 
-![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/pages.png?raw=true)
+![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/Titlepage.png?raw=true)
 
 
 ## Run this project
