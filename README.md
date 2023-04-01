@@ -1,6 +1,8 @@
 # CodeMS
 
-this is a lightweight django project especially suited for landing pages. It allows you to define endpoints in the backend and then edit the website in the frontend. Changes to text and images and even functionalities can be done without touching the backend and within minutes.
+this is a lightweight django project especially suited for landing pages. It allows you to define endpoints in the backend and then edit the website in the frontend. With the GrapeJS editor in combination with materialize css you can rapidly create and edit simple pages
+
+a working showcase can be found here: https://www.schmidtschulungen.de/
 
 ![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/Titlepage.png?raw=true)
 
