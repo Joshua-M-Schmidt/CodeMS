@@ -74,6 +74,10 @@ then you can add `Blocks`, go to `/admin/landingbuilder/block/add/` and add the 
 |**Category**| *now select one of the above defined categories*| `navigation`|
 |**Fa icon**| *font awesome icon to display in drag and drop editor*| `fa-solid fa-compass`|
 
+now if you go to `/blocks` it should look like this:
+
+![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/blocks.png?raw=true)
+
 ### Pages
 
 To add a page you also need to add categories for the pages, go to `/admin/landingbuilder/pagecategory/add/` and add
@@ -91,3 +95,11 @@ now you can add pages, go to `/admin/landingbuilder/page/add/` and fill in the f
 |**Name** |*name displayed in the backend*| `"Landing page"`|
 |**Description** |*description showen in the backend*| `"page for lead generation"`|
 |**Admin** |*if true, only the admin can view the page, its advised to change later*| `True`|
+
+now if you go to `/pages` it should look like this:
+
+![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/pages.png?raw=true)
+
+clock on the page you just created and you should see an empty page, click on the wrench in the bottom right corner and you see the GrapeJS editor, drag the starter template into the editor and you should see something like this:
+
+![](https://github.com/Joshua-M-Schmidt/CodeMS/blob/main/screenshots/pages.png?raw=true)
